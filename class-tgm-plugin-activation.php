@@ -41,15 +41,10 @@ if (file_exists($autoload = __DIR__ . '/vendor/autoload.php')) {
 	require $autoload;
 }
 
-/**
- * WP_List_Table isn't always available. If it isn't available,
- * we load it here.
- *
- * @since 2.2.0
- */
-if ( ! class_exists( 'WP_List_Table' ) ) {
-	require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
-}
+require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
+require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+require_once ABSPATH . 'wp-admin/includes/class-bulk-upgrader-skin.php';
+
 
 /**
  * The WP_Upgrader file isn't always available. If it isn't available,

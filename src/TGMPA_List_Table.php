@@ -53,10 +53,12 @@ class TGMPA_List_Table extends WP_List_Table {
 	/**
 	 * References parent constructor and sets defaults for class.
 	 *
+	 * @param TGM_Plugin_Activation $tgmpa The TGMPA instance to be used by this list.
+	 *
 	 * @since 2.2.0
 	 */
-	public function __construct() {
-		$this->tgmpa = call_user_func( array( get_class( $GLOBALS['tgmpa'] ), 'get_instance' ) );
+	public function __construct($tgmpa) {
+		$this->tgmpa = $tgmpa;
 
 		parent::__construct(
 			array(
@@ -798,6 +800,7 @@ class TGMPA_List_Table extends WP_List_Table {
 
 			// Create a new instance of TGMPA_Bulk_Installer.
 			$installer = new TGMPA_Bulk_Installer(
+				$this->tgmpa,
 				new TGMPA_Bulk_Installer_Skin(
 					array(
 						'url'          => esc_url_raw( $this->tgmpa->get_tgmpa_url() ),
