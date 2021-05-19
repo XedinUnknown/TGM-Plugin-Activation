@@ -45,6 +45,12 @@ require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 require_once ABSPATH . 'wp-admin/includes/class-bulk-upgrader-skin.php';
 
+if ( did_action( 'plugins_loaded' ) ) {
+	load_tgm_plugin_activation();
+} else {
+	add_action( 'plugins_loaded', 'load_tgm_plugin_activation' );
+}
+
 /**
  * The WP_Upgrader file isn't always available. If it isn't available,
  * we load it here.

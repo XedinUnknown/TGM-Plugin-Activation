@@ -626,3 +626,14 @@ if ( ! function_exists( 'tgmpa' ) ) {
 		}
 	}
 }
+
+if ( ! function_exists( 'load_tgm_plugin_activation' ) ) {
+	/**
+	 * Ensure only one instance of the class is ever invoked.
+	 *
+	 * @since 2.5.0
+	 */
+	function load_tgm_plugin_activation() {
+		$GLOBALS['tgmpa'] = TGM_Plugin_Activation::get_instance();
+	}
+}
