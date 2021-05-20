@@ -50,15 +50,3 @@ if ( did_action( 'plugins_loaded' ) ) {
 } else {
 	add_action( 'plugins_loaded', 'load_tgm_plugin_activation' );
 }
-
-/**
- * The WP_Upgrader file isn't always available. If it isn't available,
- * we load it here.
- *
- * We check to make sure no action or activation keys are set so that WordPress
- * does not try to re-include the class when processing upgrades or installs outside
- * of the class.
- *
- * @since 2.2.0
- */
-add_action( 'admin_init', 'tgmpa_load_bulk_installer' );
